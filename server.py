@@ -58,6 +58,9 @@ def main():
 
     shell.check_python()
 
+    reload(sys)  # Reload does the trick!
+    sys.setdefaultencoding('UTF8')
+
     if get_config().API_INTERFACE == 'modwebapi':
         threadMain = MainThread(web_transfer.WebTransfer)
     else:
